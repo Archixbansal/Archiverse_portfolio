@@ -1,48 +1,44 @@
 import React from 'react';
-import { useState, useEffect, useRef } from 'react';
-import { name } from '../constants';
-import { motion } from "framer-motion";
-import Background from './Background';
 import Footer from './Footer';
 
 const Home = () => {
+    return (
+        <div className='relative z-0 bg-black w-screen h-screen flex justify-center items-center'>
+            <ul className="circles">
+                <li></li><li></li><li></li><li></li><li></li>
+                <li></li><li></li><li></li><li></li><li></li>
+            </ul>
 
-	const ref = useRef(0);
-	const [text, setText] = useState('');
+            {/* ✅ Main Content */}
+            <div className="flex items-center space-x-4 sm:space-x-3">
+                {/* ✅ Left-Aligned Text */}
+                <div className="text-left text-white">
+                    <h1 className='text-5xl sm:text-6xl font-extrabold'>Archi Bansal</h1>
+                    <p className='mt-3 text-lg sm:text-xl'>Software Developer</p>
+                    {/* ❌ Removed Popup Button */}
+                </div>
 
-	useEffect(() => {
-		const interval = setInterval(() => {
-			if (ref.current < name.length) {
-				ref.current++;
-				setText(() => text + name[ref.current - 1]);
-			}
-		}, 500);
-		return () => clearInterval(interval);
-	}, [text]);
+                {/* ✅ Adjusted Logo Position */}
+                <div className="mt-14">
+                    <img 
+                        src="/name-logo.svg" 
+                        alt="Archi Bansal Logo" 
+                        className="w-[70vw] max-w-[350px] sm:max-w-[550px] h-auto"
+                    />
+                </div>
+            </div>
 
-	return (
-		<div className='area relative z-0 bg-black w-screen h-screen'>
-			<ul class="circles">
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-			</ul>
-			<div className='hero relative h-[calc(100vh)] flex justify-center items-center text-white' id='hero'>
-				<div className='pt-4 h-36 backdrop-blur-sm rounded-3xl'>
-					<h1 className='text-6xl sm:text-7xl font-extrabold mt-2'>Hi, I'm&nbsp;<span className='text-yellow-200 font-extrabold'>{text}</span></h1>
-					<p className='mt-3 text-xl'>I love to learn and build scalable and optimized backend systems.</p>
-				</div>      
-			</div>
-			<Footer/>
-		</div>	
-	);
+            {/* ❌ Removed Popup Modal */}
+            <Footer />
+        </div>  
+    );
 }
 
 export default Home;
+
+
+
+
+
+
+

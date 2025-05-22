@@ -1,5 +1,5 @@
-import React, { useState ,useEffect} from 'react';
-import { Link,useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,27 +19,31 @@ const Navbar = () => {
   }, [pathname]);
 
   return (
-    <nav className="bg-gray-800 p-4 text-white fixed w-full z-10 top-0" style={{ cursor: 'default' }}>
-      <div className="mx-auto text-center flex w-5/6 justify-between">
+    <nav className="bg-gray-800 p-4 text-white fixed w-full z-10 top-0">
+      <div className="w-11/12 mx-auto flex items-center justify-between">
         
-        <div className="hidden sm:flex space-x-4 items-center text-sm">
-          <Link to='/'>Home</Link>
-          <Link to='/about'>About</Link>
-        </div>
-        <div className="text-3xl sm:text-2xl font-extrabold">
-          <a href="/">Nithin Manda</a>
-        </div>
-        <div className="hidden sm:flex space-x-4 items-center text-sm">
-          <Link to='/projects'>Projects</Link>
-          <Link to='/experience'>Experience</Link>
-          <Link to='/contact'>Contact</Link>
+        {/* ✅ Left Aligned Links (Pushed Further Left) */}
+        <div className="flex space-x-8 text-sm">
+          <Link to='/' className="hover:text-yellow-300">Home</Link>
+          <Link to='/about' className="hover:text-yellow-300">About</Link>
+          <Link to='/projects' className="hover:text-yellow-300">Projects</Link>
+          <Link to='/experience' className="hover:text-yellow-300">Experience</Link>
+          <Link to='/contact' className="hover:text-yellow-300">Contact</Link>
         </div>
 
+        {/* ✅ Centered "ARCHIVERSE" */}
+        <div className="absolute left-1/2 transform -translate-x-1/2 text-3xl sm:text-2xl font-extrabold">
+          <a href="/">ARCHIVERSE</a>
+        </div>
+
+        {/* ✅ Mobile Menu Button (Hidden on large screens) */}
         <div className="sm:hidden">
           <button onClick={toggleMobileMenu} className="text-xl focus:outline-none">
             {isMobileMenuOpen ? '✕' : '☰'}
           </button>
         </div>
+
+        {/* ✅ Mobile Menu */}
         <div className={`sm:hidden fixed top-0 left-0 w-full h-full bg-gray-800 text-center ${isMobileMenuOpen ? 'flex flex-col items-center justify-center' : 'hidden'}`}>
           <button onClick={closeMobileMenu} className="text-xl absolute top-4 right-4 focus:outline-none">
             ✕
@@ -48,7 +52,7 @@ const Navbar = () => {
             <li><Link to='/' onClick={closeMobileMenu}>Home</Link></li>
             <li><Link to='/about' onClick={closeMobileMenu}>About</Link></li>
             <li><Link to='/projects' onClick={closeMobileMenu}>Projects</Link></li>
-            <li><Link to='/experience' onClick={closeMobileMenu}>Experince</Link></li>
+            <li><Link to='/experience' onClick={closeMobileMenu}>Experience</Link></li>
             <li><Link to='/contact' onClick={closeMobileMenu}>Contact</Link></li>
           </ul>
         </div>
