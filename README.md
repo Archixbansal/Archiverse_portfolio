@@ -54,8 +54,6 @@ If you'd like to connect, feel free to reach out:
 
 📧 archibansal904@gmail.com
 
-🌐 
-
-🐙 GitHub
+🌐 www.linkedin.com/in/archi-bansal-19jan2004
 
 
